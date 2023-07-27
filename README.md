@@ -66,8 +66,8 @@
 
     - 색공간 모델 중 세 가지 요소로 색을 표현하는 방식이며, 색상(Hue)은 [0, 255]의 값으로 색 종류를, 채도(Saturation)는 [0, 255]의 값으로 색의 밀도를, 명도(Value)는 [0, 255]의 값으로 색의 밝기를 표현한다.
     - 두 번째 그래프는 한 시점에서 시간이 흐름에 따라 달라지는 구름의 높이를 측정한 그래프를 나타낸다.
-    - 색상(Hue)은 비교적 비슷하여 Class 별로 비교하기 어렵지만, 채도(Saturation)는 구름의 밀도 정보를 반영하고 있어 구름의 높이가 높을수록 채도가 높다는 것을 알 수 있으며, 이러한 기준으로 쌓여있는 구름이라고 표현할 수 있다.
-    - 명도(Value)는 구름의 밝기 정보를 반영하고 있어 인공위성 촬영 시점에서 바라봤을 때 구름의 평면이 넓을수록 명도가 높다는 것을 알 수 있으며, 이러한 기준으로 손을 잡고 있는 구름이라고 표현할 수 있다.
+    - **색상(Hue)**은 비교적 비슷하여 Class 별로 비교하기 어렵지만, **채도(Saturation)**는 구름의 밀도 정보를 반영하고 있어 구름의 높이가 높을수록 채도가 높다는 것을 알 수 있으며, 이러한 기준으로 쌓여있는 구름이라고 표현할 수 있다.
+    - **명도(Value)**는 구름의 밝기 정보를 반영하고 있어 인공위성 촬영 시점에서 바라봤을 때 구름의 평면이 넓을수록 명도가 높다는 것을 알 수 있으며, 이러한 기준으로 손을 잡고 있는 구름이라고 표현할 수 있다.
 
     <img width="1008" alt="스크린샷 2023-07-27 오후 1 27 07" src="https://github.com/Yu-Miri/Cloud_Classification_for_Weather_Forecast/assets/121469490/76260c11-1633-4de1-b747-b76d90b93f08">
 
@@ -76,20 +76,20 @@
   
     <img width="1018" alt="스크린샷 2023-07-27 오후 1 27 59" src="https://github.com/Yu-Miri/Cloud_Classification_for_Weather_Forecast/assets/121469490/8523f8fe-1ebc-4133-955e-27c5fab0281d">
     
-    - 기존의 색상(Hue) Image는 패턴 파악에 악영향을 주기 때문에 패턴 학습의 난이도를 낮추기 위해 Class 별로 비교하기 어려운 색상(Hue) Image를 기존의 Image에 Adaptive Mean Binarization을 적용한 Adaptive Binarization Image로 대체하여 이미지의 광도 불균일성이나 조명 변화와 같은 영향을 최소화하여 모델의 성능을 개선하였다.
+    - 기존의 색상(Hue) Image는 패턴 파악에 악영향을 주기 때문에 패턴 학습의 난이도를 낮추기 위해 Class 별로 비교하기 어려운 색상(Hue) Image를 기존의 Image에 Adaptive Mean Binarization을 적용한 **Adaptive Binarization Image**로 대체하여 이미지의 광도 불균일성이나 조명 변화와 같은 영향을 최소화하여 모델의 성능을 개선하였다.
 
 - **이외의 전처리[Gray-Scaling, Histogram Equalization, Zero-Centering]**
 
     <img width="1007" alt="스크린샷 2023-07-27 오후 1 28 29" src="https://github.com/Yu-Miri/Cloud_Classification_for_Weather_Forecast/assets/121469490/0a23236d-b930-418a-bfe6-70451808c3aa">
 
     - **Histrogram Equalization Image** : 해당 이미지의 픽셀 값 빈도 분포를 균등하게 만드는데, 상대적으로 밝은 부분은 덜 밝은 부분보다 더 밝게, 덜 밝은 부분은 더 어둡게 만드는 것으로, 이미지의 대비를 개선해 시각적 품질을 향상시킨 Image
-    - Adaptive Binary 이외에도 다양하게 전처리를 적용해 주었지만 상대적으로 모델의 성능이 개선되지 않았다.
+    - Adaptive Binary 이외에도 다양하게 전처리를 적용해 주었지만, 상대적으로 모델의 성능이 개선되지 않았다.
 
 - **Dataset Annotation 조정**
 
     <img width="1006" alt="스크린샷 2023-07-27 오후 1 29 03" src="https://github.com/Yu-Miri/Cloud_Classification_for_Weather_Forecast/assets/121469490/ceb8c3f4-1a6f-40df-a6d3-b99628acd71b">
 
-    - YOLO v8 모델의 성능 자체가 좋지 않았으며, Roboflow에서 제공되고 있는 Dataset을 확인한 결과 왼쪽의 두 사진과 같이 Annotation에 문제가 있었기에 모든 사진을 확인하면서 잘못된 Annotation Bounding Box와 중복된 Annotation Bounding Box를 제거하고, Bounding Box가 중복되지 않도록 Annotation을 조정하여 모델의 성능을 개선하였다.
+    - YOLO v8 모델의 성능 자체가 좋지 않았으며, Roboflow에서 제공되고 있는 Dataset을 확인한 결과 왼쪽의 두 사진과 같이 Annotation에 문제가 있었기에 모든 사진을 확인하면서 잘못된 Annotation Bounding Box와 중복된 Annotation Bounding Box를 제거하고, Bounding Box가 중복되지 않도록 **Annotation을 조정**하여 모델의 성능을 개선하였다.
 
 ## 모델 성능 개선
 
@@ -99,7 +99,7 @@
 
     - **Bounding Box vs. Anchor Box** : Bounding Box는 실제 객체의 위치와 크기를 나타내는 박스이며, Anchor Box는 모델이 객체를 검출하는 시작점으로서, 이미지에서 객체가 있을 가능성이 높은 위치와 크기가 사전에 정의된 박스를 말한다.
     - Cloud Dataset Image의 Bounding Box Scale을 나타내는 왼쪽의 그래프는 한 곳에 밀집되어 있는 Yolo v4의 Default Anchor Box Scale과 맞지 않아 객체 인식을 잘 하지 못 하는 문제가 발생하였다.
-    - 이를 해결하기 위해 K_means로 총 9개의 Cluster를 생성하였으며, 생성된 Cluster의 중심 좌표를 Anchor Box의 좌표로 이용하여 Yolo v4의 Anchor Box의 분포를 조정해 모델의 성능을 개선하였다.
+    - 이를 해결하기 위해 K_means로 총 9개의 Cluster를 생성하였으며, 생성된 Cluster의 중심 좌표를 Anchor Box의 좌표로 이용하여 **Yolo v4의 Anchor Box의 분포를 조정**해 모델의 성능을 개선하였다.
     
     <img width="689" alt="스크린샷 2023-07-27 오후 1 30 47" src="https://github.com/Yu-Miri/Cloud_Classification_for_Weather_Forecast/assets/121469490/c05ddda5-a543-460f-9fce-9af740bc5669">
 
@@ -123,7 +123,7 @@
         <img width="660" alt="스크린샷 2023-07-27 오후 1 33 11" src="https://github.com/Yu-Miri/Cloud_Classification_for_Weather_Forecast/assets/121469490/b479cf39-1a54-4fce-be11-a7e6f7064e69">
     
         - YOLO v8 모델은 파라미터의 개수에 따라 5개의 Scale으로 나뉘어져 있어 모델의 Scale을 선택할 수 있었으며, 모델의 복잡도가 상대적으로 높은 v8l 모델이나 v8x 모델이 v8s 모델, v8m 모델보다 성능이 좋지 않았다.
-        - 이에 따라 데이터와 모델의 복잡도에 따라 성능 차이가 존재한다는 것을 알 수 있었으며, 이를 통해 최종적으로 YOLO v8s 모델을 사용하였다.
+        - 이에 따라 데이터와 모델의 복잡도에 따라 성능 차이가 존재한다는 것을 알 수 있었으며, 이를 통해 최종적으로 **YOLO v8s 모델**을 사용하였다.
     - **YOLO v8s 모델의 mAP 그래프**
 
         <img width="431" alt="스크린샷 2023-07-27 오후 1 33 41" src="https://github.com/Yu-Miri/Cloud_Classification_for_Weather_Forecast/assets/121469490/ed18a689-6856-4762-98e8-7b790baca3a0">
@@ -159,10 +159,10 @@
       <img width="534" alt="스크린샷 2023-07-27 오후 1 34 50" src="https://github.com/Yu-Miri/Cloud_Classification_for_Weather_Forecast/assets/121469490/b85b65b3-dace-4f45-a98e-113556e05e24">
 
     
-    - **2023년 04월 20일 07:30 ~ 08:30 한반도 위성 영상 & Inference 결과**
+    - **2023년 04월 20일 07:30 ~ 08:30 한반도 위성 영상**
 ![구름](https://github.com/Yu-Miri/Cloud_Classification_for_Weather_Forecast/assets/121469490/17322f86-4efa-42da-8697-21af4e63e5f3)
 
-
+    - **Inference 결과**
         <img width="458" alt="스크린샷 2023-07-27 오후 1 35 42" src="https://github.com/Yu-Miri/Cloud_Classification_for_Weather_Forecast/assets/121469490/5eb7598a-af80-45df-acd4-7a34c31fec05">
         
         - 비 날씨에 큰 영향을 미치는 Fish 구름은 중국 지역을 지나고 있기에 서울은 강수 확률이 낮을 것으로 예상
