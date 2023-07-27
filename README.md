@@ -160,6 +160,7 @@
 
     
     - **2023년 04월 20일 07:30 ~ 08:30 한반도 위성 영상 & Inference 결과**
+![구름](https://github.com/Yu-Miri/Cloud_Classification_for_Weather_Forecast/assets/121469490/17322f86-4efa-42da-8697-21af4e63e5f3)
 
 
         <img width="458" alt="스크린샷 2023-07-27 오후 1 35 42" src="https://github.com/Yu-Miri/Cloud_Classification_for_Weather_Forecast/assets/121469490/5eb7598a-af80-45df-acd4-7a34c31fec05">
