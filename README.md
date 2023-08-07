@@ -5,9 +5,11 @@
 - **기간** : 2023.04.01 ~ 2023.04.20
 - **인원 구성** : 3명
 - **주요업무 및 상세역할**
-    - **데이터 전처리** : Noise가 존재하는 원본 Image에서 색공간 모델 중 HSV 방식으로부터 학습 난이도를 낮추기 위하여 색상(Hue) Image를 Adaptive Binarization Image로 대체하여 모델의 성능을 개선하는 경험을 해보았으며, 이외에도 Gray-Scaling, Histogram Equalization, Zero-Centering의 전처리를 적용해보았습니다.
-    - **Dataset Annotation** : Dataset 자체에 잘못된 Annotation이나 중복된 Annotation 문제가 존재하여 모델의 성능을 개선하기 위해 5,050장의 Image의 Annotation을 조정하였습니다.
-    - **모델 성능 개선 전략 수립** : 모델마다 각각 Attention을 다르게 하여 mAP를 기준으로 모델에 적합한 Anchor Box를 조정해 보았습니다. 또한, 데이터에 ASV를 적용하여 모델의 mAP Score를 평가하고, 이에 따라 모델에 적합한 데이터셋을 구축하는 경험을 해 보았습니다. 추가적으로 모델의 복잡도에 따른 성능 차이를 확인하여 적합하다고 판단되는 모델을 선정하였습니다.
+    - 프로젝트 **주제 선정 및 계획 수립**
+    - Adaptive Binarization을 적용시킨 **Custom Dataset 생성**
+    - **Dataset Annotation** 및 Gray-Scaling, Histogram Equalization, Zero-Centering를 적용하여 **데이터 전처리**
+    - 모델 복잡도에 따른 **모델 선정** 및 Anchor Box, max batch 조정을 통한 Yolo **모델 핸들링**
+    - 프로젝트 **발표자료 작성**
 - **사용언어 및 개발환경** : Google colab Pro+, Python, Numpy, Pandas, Matplotlib, OpenCV, VSCode, Mac OS, Slack
 
 ## 문제 정의
