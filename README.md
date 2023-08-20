@@ -5,11 +5,9 @@
 - **기간** : 2023.04.01 ~ 2023.04.20
 - **인원 구성** : 3명
 - **주요업무 및 상세역할**
-    - 프로젝트 **주제 선정 및 계획 수립**
     - Adaptive Binarization을 적용시킨 **Custom Dataset 생성**
     - **Dataset Annotation** 및 Gray-Scaling, Histogram Equalization, Zero-Centering를 적용하여 **데이터 전처리**
     - 모델 복잡도에 따른 **모델 선정** 및 Anchor Box, max batch 조정을 통한 Yolo **모델 핸들링**
-    - 프로젝트 **발표자료 작성**
 - **사용언어 및 개발환경** : Google colab Pro+, Python, Numpy, Pandas, Matplotlib, OpenCV, VSCode, Mac OS, Slack
 
 ## 문제 정의
